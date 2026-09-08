@@ -1,0 +1,5 @@
+.leadership-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:14px}
+.leadership-grid article{min-height:112px;padding:18px;background:var(--panel);border:1px solid var(--line);display:flex;flex-direction:column;gap:9px}
+.leadership-grid span,.leadership-grid small{font:9px var(--mono);color:var(--muted);letter-spacing:.06em}.leadership-grid span{color:var(--green)}
+.leadership-grid b{font:600 16px var(--sans);letter-spacing:-.03em}.leadership-grid .vacant{border-color:#765e31}.leadership-grid .vacant span,.leadership-grid .vacant b{color:var(--yellow)}
+@media(max-width:680px){.leadership-grid{grid-template-columns:1fr}}
