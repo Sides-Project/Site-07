@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Внутренняя информационная сеть SCP Foundation — Site-07" />
+  <title>SITE-07 // INTERNAL NETWORK</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="fixes.css" />
+</head>
+<body>
+  <div class="boot-screen" id="boot-screen" aria-live="polite">
+    <div class="boot-mark">SCP<br /><span>FOUNDATION</span></div>
+    <div class="boot-copy" id="boot-copy"></div>
+    <div class="boot-progress"><span id="boot-progress"></span></div>
+    <div class="boot-status" id="boot-status">SYSTEM BOOT // 00%</div>
+  </div>
+
+  <div class="noise" aria-hidden="true"></div>
+  <div class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="#home" aria-label="Site-07 — главная">
+        <span class="brand-mark">S7</span>
+        <span><b>SITE-07</b><small>INTERNAL NETWORK</small></span>
+      </a>
+      <button class="menu-toggle" aria-label="Открыть меню" aria-expanded="false"><i></i><i></i><i></i></button>
+      <nav class="nav" aria-label="Основная навигация">
+        <a class="active" href="#home">Главная</a>
+        <a href="#about">О Site-07</a>
+        <a href="#history">История</a>
+        <a href="#structure">Структура</a>
+        <a href="#services">Службы</a>
+        <a href="#scp">SCP</a>
+        <a href="#documents">Документация</a>
+      </nav>
+      <div class="network-status"><span></span> SECURE</div>
+    </header>
+
+    <main>
+      <section class="hero section" id="home">
+        <div class="eyebrow"><span class="pulse"></span> SECURE FOUNDATION NETWORK // NODE S07</div>
+        <div class="hero-grid">
+          <div>
+            <p class="terminal-line">&gt; ACCESS LEVEL: STAFF</p>
+            <h1>SITE-07:<br /><em>SIDE'S PROJECT</em></h1>
+            <p class="hero-description">Информационная база складского и логистического комплекса Фонда. Доступ к материалам объекта, структуре и реестру содержания.</p>
+            <div class="hero-actions">
+              <a class="button primary" href="#about">Открыть базу <span>→</span></a>
+              <a class="button ghost" href="#scp">Реестр SCP</a>
+            </div>
+          </div>
+          <aside class="identity-card">
+            <div class="card-heading"><span>OBJECT IDENTIFICATION</span><b>ACTIVE</b></div>
+            <div class="site-insignia"><div>07</div><span>SCP<br />FOUNDATION</span></div>
+            <dl>
+              <div><dt>LOCATION</dt><dd>ТАЛЛИНН, ЭСТОНИЯ</dd></div>
+              <div><dt>ESTABLISHED</dt><dd>2000</dd></div>
+              <div><dt>SITE DIRECTOR</dt><dd>МАРСЕЛЬ МЕЙПОВ</dd></div>
+              <div><dt>STATUS</dt><dd class="online"><i></i> OPERATIONAL</dd></div>
+            </dl>
+          </aside>
+        </div>
+        <div class="warning-strip"><span>⚠</span><p>УВЕДОМЛЕНИЕ О БЕЗОПАСНОСТИ: несанкционированный доступ к материалам внутренней сети строго запрещён.</p><span class="doc-code">S07-███-041</span></div>
+      </section>
+
+      <section class="section content-section" id="about">
+        <div class="section-head"><div><p class="eyebrow">01 // FACILITY OVERVIEW</p><h2>О <em>Site-07</em></h2></div><p class="section-code">FILE // S07-OVR-2000</p></div>
+        <div class="about-grid">
+          <article class="narrative-panel"><p class="terminal-line">&gt; ОБЩАЯ ИНФОРМАЦИЯ</p><p>Site-07 является складским и логистическим комплексом Фонда SCP, предназначенным для хранения и временного содержания аномальных объектов.</p><p>На территории комплекса также хранится и тестируется экспериментальное оружие.</p><div class="metadata"><span>CLASSIFICATION <b>RESTRICTED</b></span><span>DATABASE <b>ACTIVE</b></span></div></article>
+          <div class="zones">
+            <button class="zone-card" data-zone="01"><span>01</span><b>Офисная зона</b><small>ADMINISTRATION / ACCESS 1</small><i>↗</i></button>
+            <button class="zone-card" data-zone="02"><span>02</span><b>Лёгкая зона содержания</b><small>CONTAINMENT / ACCESS 2</small><i>↗</i></button>
+            <button class="zone-card danger" data-zone="03"><span>03</span><b>Тяжёлая зона содержания</b><small>CONTAINMENT / ACCESS 4</small><i>↗</i></button>
+          </div>
+        </div>
+      </section>
+
+      <section class="section content-section history" id="history">
+        <div class="section-head"><div><p class="eyebrow">02 // ARCHIVED RECORDS</p><h2>История <em>объекта</em></h2></div><p class="section-code">TIMELINE // VERIFIED</p></div>
+        <div class="timeline">
+          <article class="timeline-entry"><div class="timeline-year">АРХИВ</div><div class="timeline-dot"></div><div><h3>Site-19 и Site-02</h3><p>Первоначально существовали две зоны — Site-19 и Site-02. После атаки Повстанцев Хаоса Site-19 был захвачен и исчез с радаров. Его дальнейшая судьба неизвестна.</p></div></article>
+          <article class="timeline-entry"><div class="timeline-year">RECORD 02</div><div class="timeline-dot"></div><div><h3>Переименование</h3><p>После исчезновения Site-19 Совет Зоны принял решение переименовать оставшийся Site-02 в Site-07. Так появился нынешний объект.</p></div></article>
+          <article class="timeline-entry current"><div class="timeline-year">CURRENT</div><div class="timeline-dot"></div><div><h3>Текущая оперативная сводка</h3><p>В истории комплекса отмечены отражённая атака Повстанцев Хаоса, попытки взлома, нарушения безопасности и другие инциденты.</p></div></article>
+        </div>
+      </section>
+
+      <section class="section content-section" id="structure">
+        <div class="section-head"><div><p class="eyebrow">03 // CHAIN OF COMMAND</p><h2>Структура <em>Site-07</em></h2></div><p class="section-code">LEVEL 05 REQUIRED</p></div>
+        <div class="command-card"><span class="rank">SITE DIRECTOR</span><div class="director-seal">07</div><div><h3>Марсель Мейпов</h3><p>Руководитель комплекса</p></div><span class="clearance">CLEARANCE<br /><b>LEVEL 05</b></span></div>
+      </section>
+
+      <section class="section content-section" id="services">
+        <div class="section-head"><div><p class="eyebrow">04 // DEPARTMENTS</p><h2>Службы <em>объекта</em></h2></div><p class="section-code">STAFF DIRECTORY</p></div>
+        <div class="services-grid">
+          <article class="service-card" data-service="security"><span>СБ // 01</span><h3>Служба безопасности</h3><p>Охрана учреждений и SCP-объектов, реагирование на нарушения содержания, вторжения и чрезвычайные ситуации.</p><footer>ГЛАВА СБ <i>→</i> СОТРУДНИК СБ</footer></article>
+          <article class="service-card" data-service="science"><span>НС // 02</span><h3>Научная служба</h3><p>Исследование SCP, разработка мер противодействия, оборудования, устройств и препаратов.</p><footer>ГЛАВА НС <i>→</i> СОТРУДНИК НС</footer></article>
+          <article class="service-card" data-service="medical"><span>МС // 03</span><h3>Медицинская служба</h3><p>Медицинская помощь и поддержание здоровья и работоспособности персонала Фонда.</p><footer>ГЛАВА МС <i>→</i> СОТРУДНИК МС</footer></article>
+          <article class="service-card" data-service="logistics"><span>СЛ // 04</span><h3>Служба логистики</h3><p>Распределение ресурсов. Высший приоритет получают SCP и ресурсы, необходимые для их содержания.</p><footer>ГЛАВА СЛ <i>→</i> СОТРУДНИК СЛ</footer></article>
+          <article class="service-card" data-service="engineering"><span>ИТС // 05</span><h3>Инженерно-техническая служба</h3><p>Проектирование, строительство, ремонт и техническое обслуживание комплекса и техники.</p><footer>ГЛАВА ИТС <i>→</i> СОТРУДНИК ИТС</footer></article>
+          <article class="service-card" data-service="support"><span>СВО // 06</span><h3>Служба вспомогательного обеспечения</h3><p>Повседневная деятельность комплекса: доставка, переноска грузов, подготовка помещений и поручения служб.</p><footer>ГЛАВА СВО <i>→</i> СОТРУДНИК СВО</footer></article>
+        </div>
+      </section>
+
+      <section class="section content-section" id="scp">
+        <div class="section-head"><div><p class="eyebrow"><span class="pulse"></span> 05 // CONTAINMENT REGISTRY</p><h2>Содержащиеся <em>объекты</em></h2></div><p class="section-code">DATABASE // 11 ENTRIES</p></div>
+        <p class="registry-note">Выберите запись, чтобы просмотреть доступные данные. Дополнительные сведения классифицированы.</p>
+        <div class="scp-grid" id="scp-grid"></div>
+      </section>
+
+      <section class="section content-section" id="documents">
+        <div class="section-head"><div><p class="eyebrow">06 // FOUNDATION ARCHIVE</p><h2>Документация <em>объекта</em></h2></div><p class="section-code">ARCHIVE STATUS // ACTIVE</p></div>
+        <article class="foundation-document">
+          <header><div><b>FOUNDATION DATABASE</b><span>SITE-07</span></div><i>RESTRICTED</i></header>
+          <div class="document-meta"><span>DOCUMENT ID:<b>S07-████-████</b></span><span>CLASSIFICATION:<b>RESTRICTED</b></span><span>STATUS:<b>ACTIVE</b></span></div>
+          <div class="document-content"><p>[ CONTENT ]</p><h3>Внутренний архив Site-07</h3><p>Данная запись предназначена для материалов, допущенных к публикации во внутренней сети. Сведения, отсутствующие в верифицированном лоре объекта, отмечаются как <b>CLASSIFIED</b>.</p></div>
+          <footer>SITE-07 FOUNDATION DATABASE <span>UNAUTHORIZED ACCESS PROHIBITED</span></footer>
+        </article>
+      </section>
+    </main>
+    <footer class="footer"><span>© SCP FOUNDATION</span><span>SITE-07 INTERNAL NETWORK</span><span>UNAUTHORIZED ACCESS PROHIBITED</span></footer>
+  </div>
+
+  <dialog class="modal" id="info-modal"><button class="modal-close" aria-label="Закрыть">×</button><p class="eyebrow" id="modal-kicker"></p><h2 id="modal-title"></h2><div class="modal-rule"></div><p id="modal-body"></p><p class="classified">ADDITIONAL DATA // CLASSIFIED</p></dialog>
+  <script src="script.js"></script>
+</body>
+</html>
