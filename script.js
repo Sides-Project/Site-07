@@ -6,7 +6,16 @@ const bootLines = [
   'LOADING AUTHENTICATION SYSTEM...',
   'CHECKING ACCESS PROTOCOL...',
   'VERIFYING USER CREDENTIALS...',
-  'ACCESS VERIFICATION...'
+  'ACCESS VERIFICATION...',
+  'RETRIEVING NODE MANIFEST...',
+  'VALIDATING SECURITY TOKENS...',
+  'CHECKING CONTAINMENT STATUS...',
+  'LOADING FACILITY REGISTRY...',
+  'SYNCHRONIZING SYSTEM CLOCK...',
+  'VERIFYING NETWORK INTEGRITY...',
+  'MOUNTING ARCHIVE VOLUMES...',
+  'RUNNING DIAGNOSTIC SEQUENCE...',
+  'PROCESSING ACCESS REQUEST...'
 ];
 const bootScreen = document.querySelector('#boot-screen');
 const bootOrbital = document.querySelector('#boot-orbital');
@@ -19,6 +28,7 @@ function typeBootText(text, className, done) {
   const output = document.createElement('p');
   output.className = `boot-line${className ? ` ${className}` : ''}`;
   bootCopy.append(output);
+  bootCopy.scrollTop = bootCopy.scrollHeight;
   let character = 0;
   const typing = setInterval(() => {
     output.textContent += text[character] || '';

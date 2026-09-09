@@ -1,1 +1,1 @@
-.boot-terminal{position:absolute;top:48px;left:175px;right:52px;width:auto!important}.boot-copy{width:100%!important}@media(max-width:680px){.boot-terminal{top:126px;left:20px;right:20px;margin:0}}
+.boot-terminal{position:absolute;top:180px;left:42px;right:42px;width:auto!important}.boot-copy{width:100%!important;height:calc(100vh - 260px)!important;overflow-y:auto!important;scrollbar-width:none}.boot-copy::-webkit-scrollbar{display:none}@media(max-width:680px){.boot-terminal{top:126px;left:20px;right:20px;margin:0}.boot-copy{height:calc(100vh - 205px)!important}}
