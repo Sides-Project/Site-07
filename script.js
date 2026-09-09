@@ -14,7 +14,6 @@ const bootTerminal = document.querySelector('#boot-terminal');
 const bootCopy = document.querySelector('#boot-copy');
 const progress = document.querySelector('#boot-progress');
 const bootStatus = document.querySelector('#boot-status');
-const bootLogin = document.querySelector('#boot-login');
 
 function typeBootText(text, className, done) {
   const output = document.createElement('p');
@@ -33,10 +32,16 @@ function typeBootText(text, className, done) {
 
 function typeBootLine(index) {
   if (index === bootLines.length) {
-    progress.style.width = '90%';
-    bootStatus.textContent = 'CREDENTIALS REQUIRED // AWAITING INPUT';
-    bootLogin.hidden = false;
-    bootLogin.querySelector('input[name="login"]').focus();
+    typeBootText('SYSTEM READY', '', () => {
+      progress.style.width = '96%';
+      bootStatus.textContent = 'AUTHORIZATION SUCCESSFUL // 96%';
+      setTimeout(() => typeBootText('ACCESS GRANTED', 'granted', () => {
+        progress.style.width = '100%';
+        bootStatus.textContent = 'AUTHORIZATION COMPLETE // 100%';
+        bootScreen.classList.add('ready');
+        setTimeout(() => bootScreen.classList.add('hidden'), 1100);
+      }), 250);
+    });
     return;
   }
   typeBootText(bootLines[index], '', () => {
@@ -46,23 +51,6 @@ function typeBootLine(index) {
     setTimeout(() => typeBootLine(index + 1), 170);
   });
 }
-
-bootLogin.addEventListener('submit', (event) => {
-  event.preventDefault();
-  if (!bootLogin.checkValidity()) { bootLogin.reportValidity(); return; }
-  bootLogin.querySelectorAll('input, button').forEach((element) => { element.disabled = true; });
-  bootLogin.hidden = true;
-  typeBootText('SYSTEM READY', '', () => {
-    progress.style.width = '96%';
-    bootStatus.textContent = 'AUTHORIZATION SUCCESSFUL // 96%';
-    setTimeout(() => typeBootText('ACCESS GRANTED', 'granted', () => {
-      progress.style.width = '100%';
-      bootStatus.textContent = 'AUTHORIZATION COMPLETE // 100%';
-      bootScreen.classList.add('ready');
-      setTimeout(() => bootScreen.classList.add('hidden'), 1100);
-    }), 250);
-  });
-});
 
 setTimeout(() => {
   bootOrbital.classList.add('docked');
