@@ -1,26 +1,51 @@
 const bootLines = [
-  'INITIALIZING FOUNDATION NETWORK...',
+  'INITIALIZING SYSTEM...',
+  'CONNECTING TO FOUNDATION NETWORK...',
   'ESTABLISHING SECURE CONNECTION...',
-  'AUTHENTICATING USER...',
-  'ACCESS GRANTED.'
+  'VERIFYING DATABASE...',
+  'LOADING AUTHENTICATION SYSTEM...',
+  'CHECKING ACCESS PROTOCOL...',
+  'VERIFYING USER CREDENTIALS...',
+  'ACCESS VERIFICATION...',
+  'SYSTEM READY',
+  'ACCESS GRANTED'
 ];
-
+const bootScreen = document.querySelector('#boot-screen');
+const bootOrbital = document.querySelector('#boot-orbital');
+const bootTerminal = document.querySelector('#boot-terminal');
 const bootCopy = document.querySelector('#boot-copy');
 const progress = document.querySelector('#boot-progress');
 const bootStatus = document.querySelector('#boot-status');
-let line = 0;
-const bootTimer = setInterval(() => {
-  if (line < bootLines.length) {
-    bootCopy.innerHTML += `${bootLines[line]}<br>`;
-    line += 1;
-    const value = line * 25;
-    progress.style.width = `${value}%`;
-    bootStatus.textContent = `SYSTEM BOOT // ${String(value).padStart(2, '0')}%`;
-  } else {
-    clearInterval(bootTimer);
-    setTimeout(() => document.querySelector('#boot-screen').classList.add('hidden'), 450);
-  }
-}, 360);
+
+function typeBootLine(index) {
+  const text = bootLines[index];
+  const output = document.createElement('p');
+  output.className = `boot-line${text === 'ACCESS GRANTED' ? ' granted' : ''}`;
+  bootCopy.append(output);
+  let character = 0;
+  const typing = setInterval(() => {
+    output.textContent += text[character] || '';
+    character += 1;
+    if (character > text.length) {
+      clearInterval(typing);
+      const value = Math.round(((index + 1) / bootLines.length) * 100);
+      progress.style.width = `${value}%`;
+      bootStatus.textContent = text === 'ACCESS GRANTED' ? 'AUTHORIZATION COMPLETE // 100%' : `SYSTEM CHECK // ${String(value).padStart(2, '0')}%`;
+      if (text === 'ACCESS GRANTED') {
+        bootScreen.classList.add('ready');
+        setTimeout(() => bootScreen.classList.add('hidden'), 1100);
+      } else {
+        setTimeout(() => typeBootLine(index + 1), 170);
+      }
+    }
+  }, 15);
+}
+
+setTimeout(() => {
+  bootOrbital.classList.add('docked');
+  bootTerminal.classList.add('visible');
+  setTimeout(() => typeBootLine(0), 360);
+}, 1800);
 
 document.querySelector('.menu-toggle').addEventListener('click', (event) => {
   const nav = document.querySelector('.nav');
@@ -92,80 +117,3 @@ const observer = new IntersectionObserver((entries) => entries.forEach((entry) =
   });
 }), { rootMargin: '-45% 0px -45% 0px' });
 document.querySelectorAll('main section[id]').forEach((section) => observer.observe(section));
-
-const reviewAccounts = {
-  security: { name: 'Давид Банальный', service: 'Служба безопасности', code: 'S07-HEAD' },
-  science: { name: 'Жиберт Жирка', service: 'Научная служба', code: 'S07-HEAD' },
-  medical: { name: 'Грегори Хаус', service: 'Медицинская служба', code: 'S07-HEAD' },
-  support: { name: 'Антон Картофельный', service: 'Служба вспомогательного обеспечения', code: 'S07-HEAD' }
-};
-const serviceNames = {
-  security: 'Служба безопасности', science: 'Научная служба', medical: 'Медицинская служба',
-  logistics: 'Служба логистики', engineering: 'Инженерно-техническая служба', support: 'Служба вспомогательного обеспечения'
-};
-const applicationForm = document.querySelector('#application-form');
-const loginForm = document.querySelector('#login-form');
-const loginView = document.querySelector('#login-view');
-const dashboardView = document.querySelector('#dashboard-view');
-const applicationsList = document.querySelector('#applications-list');
-let activeReviewer = null;
-
-function readApplications() {
-  try { return JSON.parse(localStorage.getItem('site07Applications') || '[]'); } catch { return []; }
-}
-function writeApplications(applications) { localStorage.setItem('site07Applications', JSON.stringify(applications)); }
-function renderApplications() {
-  if (!activeReviewer) return;
-  const records = readApplications().filter((record) => record.service === activeReviewer);
-  const pending = records.filter((record) => record.status === 'pending');
-  document.querySelector('#pending-count').textContent = String(pending.length).padStart(2, '0');
-  applicationsList.replaceChildren();
-  if (!records.length) {
-    const empty = document.createElement('p'); empty.className = 'empty-applications'; empty.textContent = 'ЗАЯВКИ В ЭТУ СЛУЖБУ ОТСУТСТВУЮТ.'; applicationsList.append(empty); return;
-  }
-  records.slice().reverse().forEach((record) => {
-    const article = document.createElement('article'); article.className = 'application-record';
-    const header = document.createElement('header'); const name = document.createElement('b'); const status = document.createElement('span');
-    name.textContent = record.applicant; status.textContent = record.status === 'pending' ? 'PENDING' : record.status.toUpperCase();
-    if (record.status === 'accepted') status.classList.add('status-accepted');
-    if (record.status === 'rejected') status.classList.add('status-rejected');
-    header.append(name, status);
-    const contact = document.createElement('p'); contact.className = 'contact'; contact.textContent = `CONTACT: ${record.contact}`;
-    const message = document.createElement('p'); message.className = 'message'; message.textContent = record.message;
-    article.append(header, contact, message);
-    if (record.status === 'pending') {
-      const actions = document.createElement('div'); actions.className = 'application-actions';
-      const accept = document.createElement('button'); accept.className = 'accept'; accept.textContent = 'ПРИНЯТЬ'; accept.addEventListener('click', () => updateApplication(record.id, 'accepted'));
-      const reject = document.createElement('button'); reject.className = 'reject'; reject.textContent = 'ОТКЛОНИТЬ'; reject.addEventListener('click', () => updateApplication(record.id, 'rejected'));
-      actions.append(accept, reject); article.append(actions);
-    }
-    applicationsList.append(article);
-  });
-}
-function updateApplication(id, status) {
-  const applications = readApplications().map((record) => record.id === id ? { ...record, status } : record);
-  writeApplications(applications); renderApplications();
-}
-applicationForm.addEventListener('submit', (event) => {
-  event.preventDefault();
-  const data = new FormData(applicationForm);
-  const application = {
-    id: `${Date.now()}-${Math.random().toString(16).slice(2)}`,
-    applicant: data.get('applicant').trim(), contact: data.get('contact').trim(), service: data.get('service'),
-    message: data.get('message').trim(), status: 'pending'
-  };
-  const applications = readApplications(); applications.push(application); writeApplications(applications); applicationForm.reset();
-  const notice = document.querySelector('#application-notice');
-  notice.textContent = reviewAccounts[application.service] ? `ЗАЯВКА НАПРАВЛЕНА: ${serviceNames[application.service].toUpperCase()}.` : 'ЗАЯВКА СОХРАНЕНА. ГЛАВА СЛУЖБЫ ПОКА НЕ НАЗНАЧЕН.';
-  if (activeReviewer === application.service) renderApplications();
-});
-loginForm.addEventListener('submit', (event) => {
-  event.preventDefault();
-  const data = new FormData(loginForm); const accountId = data.get('account'); const account = reviewAccounts[accountId];
-  if (data.get('password') !== account.code) { loginForm.querySelector('input[name="password"]').setCustomValidity('Неверный код доступа.'); loginForm.reportValidity(); return; }
-  loginForm.querySelector('input[name="password"]').setCustomValidity(''); activeReviewer = accountId;
-  document.querySelector('#reviewer-name').textContent = account.name;
-  document.querySelector('#reviewer-service').textContent = `ГЛАВА СЛУЖБЫ // ${account.service.toUpperCase()}`;
-  loginView.hidden = true; dashboardView.hidden = false; loginForm.reset(); renderApplications();
-});
-document.querySelector('#logout-button').addEventListener('click', () => { activeReviewer = null; dashboardView.hidden = true; loginView.hidden = false; });
