@@ -6,9 +6,7 @@ const bootLines = [
   'LOADING AUTHENTICATION SYSTEM...',
   'CHECKING ACCESS PROTOCOL...',
   'VERIFYING USER CREDENTIALS...',
-  'ACCESS VERIFICATION...',
-  'SYSTEM READY',
-  'ACCESS GRANTED'
+  'ACCESS VERIFICATION...'
 ];
 const bootScreen = document.querySelector('#boot-screen');
 const bootOrbital = document.querySelector('#boot-orbital');
@@ -16,11 +14,11 @@ const bootTerminal = document.querySelector('#boot-terminal');
 const bootCopy = document.querySelector('#boot-copy');
 const progress = document.querySelector('#boot-progress');
 const bootStatus = document.querySelector('#boot-status');
+const bootLogin = document.querySelector('#boot-login');
 
-function typeBootLine(index) {
-  const text = bootLines[index];
+function typeBootText(text, className, done) {
   const output = document.createElement('p');
-  output.className = `boot-line${text === 'ACCESS GRANTED' ? ' granted' : ''}`;
+  output.className = `boot-line${className ? ` ${className}` : ''}`;
   bootCopy.append(output);
   let character = 0;
   const typing = setInterval(() => {
@@ -28,18 +26,43 @@ function typeBootLine(index) {
     character += 1;
     if (character > text.length) {
       clearInterval(typing);
-      const value = Math.round(((index + 1) / bootLines.length) * 100);
-      progress.style.width = `${value}%`;
-      bootStatus.textContent = text === 'ACCESS GRANTED' ? 'AUTHORIZATION COMPLETE // 100%' : `SYSTEM CHECK // ${String(value).padStart(2, '0')}%`;
-      if (text === 'ACCESS GRANTED') {
-        bootScreen.classList.add('ready');
-        setTimeout(() => bootScreen.classList.add('hidden'), 1100);
-      } else {
-        setTimeout(() => typeBootLine(index + 1), 170);
-      }
+      done();
     }
   }, 15);
 }
+
+function typeBootLine(index) {
+  if (index === bootLines.length) {
+    progress.style.width = '90%';
+    bootStatus.textContent = 'CREDENTIALS REQUIRED // AWAITING INPUT';
+    bootLogin.hidden = false;
+    bootLogin.querySelector('input[name="login"]').focus();
+    return;
+  }
+  typeBootText(bootLines[index], '', () => {
+    const value = Math.round(((index + 1) / (bootLines.length + 1)) * 90);
+    progress.style.width = `${value}%`;
+    bootStatus.textContent = `SYSTEM CHECK // ${String(value).padStart(2, '0')}%`;
+    setTimeout(() => typeBootLine(index + 1), 170);
+  });
+}
+
+bootLogin.addEventListener('submit', (event) => {
+  event.preventDefault();
+  if (!bootLogin.checkValidity()) { bootLogin.reportValidity(); return; }
+  bootLogin.querySelectorAll('input, button').forEach((element) => { element.disabled = true; });
+  bootLogin.hidden = true;
+  typeBootText('SYSTEM READY', '', () => {
+    progress.style.width = '96%';
+    bootStatus.textContent = 'AUTHORIZATION SUCCESSFUL // 96%';
+    setTimeout(() => typeBootText('ACCESS GRANTED', 'granted', () => {
+      progress.style.width = '100%';
+      bootStatus.textContent = 'AUTHORIZATION COMPLETE // 100%';
+      bootScreen.classList.add('ready');
+      setTimeout(() => bootScreen.classList.add('hidden'), 1100);
+    }), 250);
+  });
+});
 
 setTimeout(() => {
   bootOrbital.classList.add('docked');
