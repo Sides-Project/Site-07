@@ -12,6 +12,7 @@
   <link rel="stylesheet" href="styles.css" />
   <link rel="stylesheet" href="fixes.css" />
   <link rel="stylesheet" href="leadership.css" />
+  <link rel="stylesheet" href="applications.css" />
 </head>
 <body>
   <div class="boot-screen" id="boot-screen" aria-live="polite">
@@ -36,6 +37,7 @@
         <a href="#services">Службы</a>
         <a href="#scp">SCP</a>
         <a href="#documents">Документация</a>
+        <a href="#applications">Заявка</a>
       </nav>
       <div class="network-status"><span></span> SECURE</div>
     </header>
@@ -124,6 +126,40 @@
           <div class="document-content"><p>[ DOCUMENT 002 // RESTRICTED RECORD ]</p><h3>Доступ ограничен</h3><p>Содержание этой записи пока не внесено в доступную базу данных Участка-07.</p><p><b>CLASSIFIED — ОЖИДАЕТ ЗАПОЛНЕНИЯ УПОЛНОМОЧЕННЫМ ПЕРСОНАЛОМ.</b></p></div>
           <footer>УЧАСТОК-07 FOUNDATION DATABASE <span>UNAUTHORIZED ACCESS PROHIBITED</span></footer>
         </article>
+      </section>
+
+      <section class="section content-section" id="applications">
+        <div class="section-head"><div><p class="eyebrow"><span class="pulse"></span> 07 // PERSONNEL INTAKE</p><h2>Подача <em>заявки</em></h2></div><p class="section-code">APPLICATION NETWORK // ACTIVE</p></div>
+        <div class="applications-layout">
+          <article class="application-panel">
+            <p class="terminal-line">&gt; НОВАЯ ЗАЯВКА В СЛУЖБУ</p>
+            <form id="application-form">
+              <label>ИМЯ ИЛИ ПОЗЫВНОЙ<input name="applicant" required maxlength="70" placeholder="Введите имя" /></label>
+              <label>КОНТАКТ ДЛЯ СВЯЗИ<input name="contact" required maxlength="100" placeholder="Discord / иной контакт" /></label>
+              <label>ВЫБЕРИТЕ СЛУЖБУ<select name="service" required><option value="security">Служба безопасности — СБ</option><option value="science">Научная служба — НС</option><option value="medical">Медицинская служба — МС</option><option value="logistics">Служба логистики — СЛ</option><option value="engineering">Инженерно-техническая служба — ИТС</option><option value="support">Служба вспомогательного обеспечения — СВО</option></select></label>
+              <label>МОТИВАЦИЯ<textarea name="message" required maxlength="1200" placeholder="Кратко опишите, почему хотите вступить в службу"></textarea></label>
+              <button class="button primary submit-application" type="submit">Отправить заявку <span>→</span></button>
+            </form>
+            <p class="form-notice" id="application-notice" role="status"></p>
+          </article>
+          <article class="review-panel" id="review-panel">
+            <div id="login-view">
+              <p class="terminal-line">&gt; ДОСТУП ДЛЯ ГЛАВ СЛУЖБ</p>
+              <h3>Авторизация</h3><p>Войдите, чтобы просматривать и обрабатывать заявки своей службы.</p>
+              <form id="login-form">
+                <label>УЧЁТНАЯ ЗАПИСЬ<select name="account" required><option value="security">Давид Банальный — Глава СБ</option><option value="science">Жиберт Жирка — Глава НС</option><option value="medical">Грегори Хаус — Глава МС</option><option value="support">Антон Картофельный — Глава СВО</option></select></label>
+                <label>КОД ДОСТУПА<input type="password" name="password" required placeholder="Введите код доступа" /></label>
+                <button class="button ghost" type="submit">Войти в реестр</button>
+              </form>
+              <p class="access-hint">Локальный демонстрационный режим: данные хранятся только в этом браузере.</p>
+            </div>
+            <div id="dashboard-view" hidden>
+              <div class="dashboard-head"><div><p class="terminal-line">&gt; REVIEW CONSOLE</p><h3 id="reviewer-name"></h3><p id="reviewer-service"></p></div><button class="logout" id="logout-button">Выйти</button></div>
+              <div class="review-summary"><span>ОЖИДАЮТ РЕШЕНИЯ</span><b id="pending-count">00</b></div>
+              <div id="applications-list" class="applications-list"></div>
+            </div>
+          </article>
+        </div>
       </section>
     </main>
     <footer class="footer"><span>© SCP FOUNDATION</span><span>УЧАСТОК-07 INTERNAL NETWORK</span><span>UNAUTHORIZED ACCESS PROHIBITED</span></footer>
