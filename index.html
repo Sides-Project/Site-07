@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Внутренняя информационная сеть SCP Foundation — Участок-07" />
-  <title>Site-07: Side's Project</title>
+  <title>УЧАСТОК-07 // INTERNAL NETWORK</title>
   <link rel="icon" type="image/png" href="assets/site-07-favicon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -14,6 +14,7 @@
   <link rel="stylesheet" href="leadership.css" />
   <link rel="stylesheet" href="boot-animation.css" />
   <link rel="stylesheet" href="boot-layout.css" />
+  <link rel="stylesheet" href="factions.css" />
 </head>
 <body>
   <div class="boot-screen" id="boot-screen" aria-live="polite">
@@ -74,33 +75,42 @@
           <div class="zones">
             <button class="zone-card" data-zone="01"><span>01</span><b>Офисная зона</b><small>ADMINISTRATION / ACCESS 1</small><i>↗</i></button>
             <button class="zone-card" data-zone="02"><span>02</span><b>Лёгкая зона содержания</b><small>CONTAINMENT / ACCESS 2</small><i>↗</i></button>
-            <button class="zone-card danger" data-zone="03"><span>03</span><b>Тяжёлая зона содержания</b><small>CONTAINMENT / ACCESS 3</small><i>↗</i></button>
+            <button class="zone-card danger" data-zone="03"><span>03</span><b>Тяжёлая зона содержания</b><small>CONTAINMENT / ACCESS 4</small><i>↗</i></button>
           </div>
         </div>
       </section>
 
       <section class="section content-section" id="structure">
-        <div class="section-head"><div><p class="eyebrow">03 // CHAIN OF COMMAND</p><h2>Структура <em>Участка-07</em></h2></div><p class="section-code">LEVEL 02 REQUIRED</p></div>
-        <div class="command-card"><span class="rank">SITE DIRECTOR</span><div class="director-seal">07</div><div><h3>Марсель Мейпов</h3><p>Руководитель комплекса</p></div><span class="clearance">CLEARANCE<br /><b>LEVEL 04</b></span></div>
+        <div class="section-head"><div><p class="eyebrow">03 // CHAIN OF COMMAND</p><h2>Структура <em>Участка-07</em></h2></div><p class="section-code">LEVEL 05 REQUIRED</p></div>
+        <div class="command-card leader-card vacant with-acting"><span class="rank">SITE DIRECTOR</span><div class="director-seal">07</div><div><h3>Директор: отсутствует</h3><p>ВРИО директора — Антон Картофельный</p><span class="acting-badge">ВРИО // ACTIVE APPOINTMENT</span></div><span class="clearance">POSITION<br /><b>VACANT</b></span></div>
         <div class="leadership-grid" aria-label="Руководители служб">
-          <article class="command-card leader-card"><span class="rank">HEAD OF SECURITY</span><div class="director-seal">СБ</div><div><h3>Грегори Хаус</h3><p>Глава Службы безопасности</p></div><span class="clearance">CLEARANCE<br /><b>LEVEL 03</b></span></article>
-          <article class="command-card leader-card"><span class="rank">HEAD OF SCIENCE</span><div class="director-seal">НС</div><div><h3>Жиберт Жирка</h3><p>Глава Научной службы</p></div><span class="clearance">CLEARANCE<br /><b>LEVEL 03</b></span></article>
-          <article class="command-card leader-card vacant"><span class="rank">HEAD OF MEDICAL</span><div class="director-seal">МС</div><div><h3>Отсутствует</h3><p>Глава Медицинской службы</p></div><span class="clearance">CLEARANCE<br /><b>LEVEL 01</b></span></article>
-          <article class="command-card leader-card vacant"><span class="rank">HEAD OF LOGISTICS</span><div class="director-seal">СЛ</div><div><h3>Отсутствует</h3><p>Глава Службы логистики</p></div><span class="clearance">CLEARANCE<br /><b>LEVEL 02</b></span></article>
-          <article class="command-card leader-card vacant"><span class="rank">HEAD OF ENGINEERING</span><div class="director-seal">И-ТС</div><div><h3>Отсутствует</h3><p>Глава Инженерно-технической службы</p></div><span class="clearance">CLEARANCE<br /><b>LEVEL 02</b></span></article>
-          <article class="command-card leader-card"><span class="rank">HEAD OF SUPPORT</span><div class="director-seal">СВ-ОБ</div><div><h3>Антон Картофельный</h3><p>Глава Службы вспомогательного обеспечения</p></div><span class="clearance">CLEARANCE<br /><b>LEVEL 03</b></span></article>
+          <article class="command-card leader-card classified-leader"><span class="rank">HEAD OF ADMINISTRATION</span><div class="director-seal">АД</div><div><h3>Антон Картофельный</h3><p>Глава АД</p></div><span class="clearance">PERSONNEL<br /><b>CLASSIFIED</b></span></article>
+          <article class="command-card leader-card classified-leader"><span class="rank">HEAD OF DIRA</span><div class="director-seal">DIRA</div><div><h3>Владислав Несчастливый</h3><p>Глава DIRA</p></div><span class="clearance">PERSONNEL<br /><b>CLASSIFIED</b></span></article>
+          <article class="command-card leader-card classified-leader"><span class="rank">HEAD OF ETHICS</span><div class="director-seal">КпЭ</div><div><h3>Марскль Майпов</h3><p>Глава Комитета по этике</p></div><span class="clearance">PERSONNEL<br /><b>RESTRICTED</b></span></article>
+          <article class="command-card leader-card classified-leader"><span class="rank">HEAD OF INTERNAL SECURITY</span><div class="director-seal">ОВБ</div><div><h3>Агент «Spectre»</h3><p>Глава ОВБ</p></div><span class="clearance">PERSONNEL<br /><b>CLASSIFIED</b></span></article>
+          <article class="command-card leader-card"><span class="rank">HEAD OF SECURITY</span><div class="director-seal">СБ</div><div><h3>Стэн Марш</h3><p>Глава СБ</p></div><span class="clearance">PERSONNEL<br /><b>ACTIVE</b></span></article>
+          <article class="command-card leader-card"><span class="rank">HEAD OF SCIENCE</span><div class="director-seal">НД</div><div><h3>Давид Банальный</h3><p>Глава НД</p></div><span class="clearance">PERSONNEL<br /><b>ACTIVE</b></span></article>
+          <article class="command-card leader-card vacant"><span class="rank">HEAD OF MEDICAL</span><div class="director-seal">МД</div><div><h3>Отсутствует</h3><p>Глава МД</p></div><span class="clearance">POSITION<br /><b>VACANT</b></span></article>
+          <article class="command-card leader-card vacant"><span class="rank">HEAD OF PERSONNEL</span><div class="director-seal">МПП</div><div><h3>Отсутствует</h3><p>Глава МПП</p></div><span class="clearance">POSITION<br /><b>VACANT</b></span></article>
+          <article class="command-card leader-card vacant"><span class="rank">HEAD OF ENGINEERING</span><div class="director-seal">И-ТС</div><div><h3>Отсутствует</h3><p>Глава И-ТС</p></div><span class="clearance">POSITION<br /><b>VACANT</b></span></article>
+          <article class="command-card leader-card vacant"><span class="rank">HEAD OF SUPPORT</span><div class="director-seal">СВ-ОБ</div><div><h3>Отсутствует</h3><p>Глава СВ-ОБ</p></div><span class="clearance">POSITION<br /><b>VACANT</b></span></article>
         </div>
       </section>
 
       <section class="section content-section" id="services">
-        <div class="section-head"><div><p class="eyebrow">04 // DEPARTMENTS</p><h2>Службы <em>объекта</em></h2></div><p class="section-code">STAFF DIRECTORY</p></div>
+        <div class="section-head"><div><p class="eyebrow">04 // DEPARTMENTS</p><h2>Службы и <em>подразделения</em></h2></div><p class="section-code">STAFF DIRECTORY</p></div>
         <div class="services-grid">
           <article class="service-card" data-service="security"><span>СБ // 01</span><h3>Служба безопасности</h3><p>Охрана учреждений и SCP-объектов, реагирование на нарушения содержания, вторжения и чрезвычайные ситуации.</p><footer>ГЛАВА СБ <i>→</i> СОТРУДНИК СБ</footer></article>
           <article class="service-card" data-service="science"><span>НС // 02</span><h3>Научная служба</h3><p>Исследование SCP, разработка мер противодействия, оборудования, устройств и препаратов.</p><footer>ГЛАВА НС <i>→</i> СОТРУДНИК НС</footer></article>
           <article class="service-card" data-service="medical"><span>МС // 03</span><h3>Медицинская служба</h3><p>Медицинская помощь и поддержание здоровья и работоспособности персонала Фонда.</p><footer>ГЛАВА МС <i>→</i> СОТРУДНИК МС</footer></article>
           <article class="service-card" data-service="logistics"><span>СЛ // 04</span><h3>Служба логистики</h3><p>Распределение ресурсов. Высший приоритет получают SCP и ресурсы, необходимые для их содержания.</p><footer>ГЛАВА СЛ <i>→</i> СОТРУДНИК СЛ</footer></article>
-          <article class="service-card" data-service="engineering"><span>И-ТС // 05</span><h3>Инженерно-техническая служба</h3><p>Проектирование, строительство, ремонт и техническое обслуживание комплекса и техники.</p><footer>ГЛАВА И-ТС <i>→</i> СОТРУДНИК И-ТС</footer></article>
-          <article class="service-card" data-service="support"><span>СВ-ОБ // 06</span><h3>Служба вспомогательного обеспечения</h3><p>Повседневная деятельность комплекса: доставка, переноска грузов, подготовка помещений и поручения служб.</p><footer>ГЛАВА СВ-ОБ <i>→</i> СОТРУДНИК СВ-ОБ</footer></article>
+          <article class="service-card" data-service="engineering"><span>ИТС // 05</span><h3>Инженерно-техническая служба</h3><p>Проектирование, строительство, ремонт и техническое обслуживание комплекса и техники.</p><footer>ГЛАВА ИТС <i>→</i> СОТРУДНИК ИТС</footer></article>
+          <article class="service-card" data-service="support"><span>СВО // 06</span><h3>Служба вспомогательного обеспечения</h3><p>Повседневная деятельность комплекса: доставка, переноска грузов, подготовка помещений и поручения служб.</p><footer>ГЛАВА СВО <i>→</i> СОТРУДНИК СВО</footer></article>
+          <article class="service-card classified-service" data-service="administration"><span>АС // 07</span><h3>Административная служба</h3><p>Общее руководство деятельностью Фонда, управление ключевыми узлами связи и финансовыми ресурсами.</p><footer>СОВЕТ O5 <i>→</i> RESTRICTED</footer></article>
+          <article class="service-card classified-service" data-service="ovb"><span>ОВБ // 08</span><h3>Отдел внутренней безопасности</h3><p>Законспирированное подразделение, выявляющее предателей и ненадёжных лиц в рядах Фонда.</p><footer>STATUS: CLASSIFIED <i>→</i> RESTRICTED</footer></article>
+          <article class="service-card classified-service" data-service="ethics"><span>КЭ // 09</span><h3>Комитет по этике</h3><p>Независимая контора по рецензированию условий содержания и проверке проводимых экспериментов.</p><footer>INDEPENDENT <i>→</i> RESTRICTED</footer></article>
+          <article class="service-card" data-service="personnel"><span>МПП // 10</span><h3>Менеджер по персоналу</h3><p>Набор, адаптация и сопровождение сотрудников Фонда на протяжении службы.</p><footer>PERSONNEL INTAKE <i>→</i> ACTIVE</footer></article>
+          <article class="service-card classified-service" data-service="dira"><span>DIRA // 11</span><h3>Департамент внутренних исследований и анализа</h3><p>Тайное подразделение специалистов и аналитиков, работающее над эффективностью сдерживания.</p><footer>STATUS: CLASSIFIED <i>→</i> LEVEL 05</footer></article>
         </div>
       </section>
 
@@ -119,9 +129,9 @@
           <footer>УЧАСТОК-07 FOUNDATION DATABASE <span>UNAUTHORIZED ACCESS PROHIBITED</span></footer>
         </article>
         <article class="foundation-document classified-document">
-          <header><div><b>FOUNDATION DATABASE</b><span>УЧАСТОК-07</span></div><i>CLASSIFIED</i></header>
-          <div class="document-meta"><span>DOCUMENT ID:<b>S07-ARC-002</b></span><span>CLASSIFICATION:<b>CLASSIFIED</b></span><span>STATUS:<b>AWAITING ENTRY</b></span></div>
-          <div class="document-content"><p>[ DOCUMENT 002 // RESTRICTED RECORD ]</p><h3>Доступ ограничен</h3><p>Содержание этой записи пока не внесено в доступную базу данных Участка-07.</p><p><b>CLASSIFIED — ОЖИДАЕТ ЗАПОЛНЕНИЯ УПОЛНОМОЧЕННЫМ ПЕРСОНАЛОМ.</b></p></div>
+          <header><div><b>FOUNDATION DATABASE</b><span>УЧАСТОК-07</span></div><i>RESTRICTED</i></header>
+          <div class="document-meta"><span>DOCUMENT ID:<b>S07-ARC-002</b></span><span>CLASSIFICATION:<b>RESTRICTED</b></span><span>STATUS:<b>ACTIVE</b></span></div>
+          <div class="document-content"><p>[ DOCUMENT 002 // PERSONNEL ORDER ]</p><h3>Кадровые изменения и назначения</h3><p>Должность директора Участка-07 является вакантной. Временно исполняющим обязанности директора назначен Антон Картофельный.</p><p>В структуру внесены руководящие роли АД, DIRA, Комитета по этике, ОВБ и МПП. Текущие назначения: глава АД — Антон Картофельный; глава DIRA — Владислав Несчастливый; глава Комитета по этике — Марскль Майпов; глава ОВБ — Агент «Spectre»; глава СБ — Стэн Марш; глава НД — Давид Банальный.</p><p>Должности глав МД, МПП, И-ТС и СВ-ОБ остаются вакантными.</p></div>
           <footer>УЧАСТОК-07 FOUNDATION DATABASE <span>UNAUTHORIZED ACCESS PROHIBITED</span></footer>
         </article>
       </section>
